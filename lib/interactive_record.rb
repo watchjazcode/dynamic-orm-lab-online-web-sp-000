@@ -1,5 +1,6 @@
 require_relative "../config/environment.rb"
 require 'active_support/inflector'
+require 'pry'
 
 class InteractiveRecord
 
@@ -26,7 +27,7 @@ class InteractiveRecord
     end
     column_names.compact
   end
-  binding.pry 
+  binding.pry
   puts column_names.inspect
   self.column_names.each do |col_name|
     attr_accessor col_name.to_sym
