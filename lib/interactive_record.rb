@@ -55,4 +55,13 @@ class InteractiveRecord
     DB[:conn].execute(sql, name)
   end
 
+#expect(Student.find_by({name: "Susan"})).to eq([{"id"=>1, "name"=>"Susan", "grade"=>10}])
+
+  def self.find_by(criteria)
+    key = criteria.keys.first
+    value = criteria.values.first
+    sql = "SELECT * FROM #{self.table_name} WHERE #{key} = ?"
+    DB[:conn].execute(sql, value)
+  end
+
 end
